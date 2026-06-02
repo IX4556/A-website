@@ -1,0 +1,271 @@
+/* 全局盒子重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 身体盒子：背景图 + 字体 */
+body {
+    font-family: "方正拉勾标题体 简", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: #2c3e50;
+    line-height: 1.8;
+    background: url("../img/花卉.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* 遮罩盒子：半透白蒙层 */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 100%);
+    z-index: -1;
+}
+
+/* 头部导航盒子：通栏 + 悬浮置顶 */
+header {
+    width: 100%;
+    padding: 16px 6%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid rgba(184, 133, 85, 0.15);
+}
+
+/* 导航链接盒子：内边距 + 静态样式 */
+.nav-left a {
+    display: inline-block;
+    margin: 0 16px;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #34495e;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
+.nav-left a {
+    background: transparent;
+}
+
+/* 搜索盒子：圆角 + 内边距 */
+.search-box {
+    width: 180px;
+    height: 36px;
+    padding: 0 14px;
+    border: 2px solid #e8e8e8;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right span {
+    font-size: 14px;
+    color: #7f8c8d;
+    padding: 6px 12px;
+    background: rgba(184, 133, 85, 0.08);
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* 内容容器盒子：居中 + 圆角 + 阴影 */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px 50px;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* 页面主标题 */
+.page-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #b85, #d4a574, #f5d5b8, #b85) 1;
+    color: #2c3e50;
+    position: relative;
+    padding-left: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.page-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 70%;
+    background: linear-gradient(180deg, #b85, #d4a574);
+    border-radius: 4px;
+}
+
+/* 主标题h1样式 */
+.container > h1 {
+    font-size: 42px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #b85, #d4a574, #f5d5b8, #b85) 1;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 作品卡片容器 */
+.works-section {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+/* 单个作品卡片 */
+.work-card {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 50px;
+    padding: 35px;
+    background: linear-gradient(135deg, #fefefe 0%, #fafafa 100%);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 作品图片容器 */
+.work-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.work-image-container img {
+    width: 100%;
+    height:100px;
+    margin: 0px;
+	height: auto;
+	display: block;
+    overflow: hidden;
+}
+div{
+
+	overflow: hidden;
+	 }
+	div img{
+	transition-duration: 2s;
+	  }
+div img:hover{
+	transform: scale(2);
+	  }
+.work-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.02) 0%);
+    pointer-events: none;
+}
+
+/* 作品内容区 */
+.work-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 作品标题 */
+.work-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #f0f0f0;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+.work-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #b85, #d4a574);
+}
+
+/* 分析项目样式 */
+.analysis-item {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(184, 133, 85, 0.04);
+    border-left: 5px solid;
+    border-image: linear-gradient(180deg, #b85, #d4a574) 1;
+    border-radius: 0 10px 10px 0;
+}
+.analysis-item h3 {
+    font-size: 20px;
+    color: #b85;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+.analysis-item p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.9;
+}
+.analysis-item ol {
+    margin-left: 24px;
+    margin-top: 10px;
+}
+.analysis-item ol li {
+    margin: 8px 0;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* 分割线盒子：细灰线 */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    margin: 30px 0;
+}
+
+/* 页脚盒子：通栏 + 居中 */
+footer {
+    width: 100%;
+    padding: 30px;
+    margin-top: 50px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 100%);
+    text-align: center;
+    font-size: 15px;
+    color: #7f8c8d;
+    border-top: 2px solid rgba(184, 133, 85, 0.12);
+    line-height: 2;
+}
